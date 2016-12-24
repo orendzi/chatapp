@@ -1,0 +1,21 @@
+//- Adds this file new code to layout.pug:
+extends layout
+
+//- This content should be inserted in layout file
+
+append content
+  - var currentPage = 'Home'
+  - var greeting = 'Hello, man! Welcome to this little and awesome chat. Simply write your nickname and password, click on "Chat" button and have fun!'
+  - var instructions = 'Here is the charbox. Write some text into the textarea and press "Send".'
+  //- Use for tests only!
+  - var isAuthorized = false
+
+  if isAuthorized
+    p #{instructions}
+    include chat
+  //- If not authorized:
+  else
+    p #{greeting}
+    include login
+
+  //- TO DO: Stats available after session(s), or never...

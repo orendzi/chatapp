@@ -1,0 +1,14 @@
+mixin navigate(name, link)
+  li
+    a(
+      href = link
+      class = {active: name === currentPage}
+      ) #{name}
+
+
+ul.navigation
+  +navigate('Home', './html/index.html')
+  +navigate('Chat', './html/chat.html')
+  //- +navigate('Statistics', './html/stats.html')
+  li
+    button#logout(value="Log out")

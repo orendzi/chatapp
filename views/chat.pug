@@ -1,0 +1,38 @@
+- var currentPage = 'Chat'
+//- TODO: move to hashmap
+// - var data = [
+//   { user: 'John', time: '2:10', msg: 'Hello, guys!'},
+//   { user: 'Mike', time: '2:12', msg: 'Hi, John!'},
+//   { user: 'John', time: '2:13', msg: 'How are you?'},
+//   { user: 'Lucy', time: '2:13', msg: 'Good evening!'},
+//   { user: 'John', time: '2:24', msg: 'Hey, Lucy, how are you doing?'}
+// ]
+//- TODO: + random img?
+mixin writeMsg(user, time, msg)
+  .msg-item
+    .msg-info
+      .user #{user}
+      .time #{time}
+    .msg
+      p #{msg}
+
+mixin usersOnline(user)
+  li #{user} is online
+
+block chat
+  .chat-wrap
+    div
+      //- TODO: choose room?
+      .msg-area
+        +writeMsg('John', '2:10', 'Hello, guys!')
+        +writeMsg('Mike', '2:12', 'Hi, John!')
+        +writeMsg('John', '2:13', 'How are you?')
+        +writeMsg('Lucy', '2:13', 'Good evening!')
+        +writeMsg('John', '2:24', 'Hey, Lucy, how are you doing?')
+    div
+      textarea(placeholder="Write your message here")
+      input(type="submit")
+  .chat-users
+    ul
+      +usersOnline('John')
+      +usersOnline('Mike')
